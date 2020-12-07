@@ -4,17 +4,22 @@
     "description": "Project template for Drupal 8 sites built with the Lightning distribution.",
     "license": "GPL-2.0+",
     "require": {
-        "acquia/headless_lightning": "~1.5.0",
+        "acquia/headless_lightning": "~1.8.0",
         "cweagans/composer-patches": "^1.6.0",
-        "drupal-composer/drupal-scaffold": "^2.0.0"
+        "drupal/core-composer-scaffold": "^9"
     },
     "require-dev": {
-        "acquia/lightning_dev": "dev-8.x-1.x",
         "composer/composer": "^1.3",
-        "drush/drush": ">=9.0",
-        "zaporylie/composer-drupal-optimizations": "^1.1"
+        "drupal/core-dev": "^9",
+        "drush/drush": ">=9.7"
     },
     "extra": {
+        "composer-exit-on-patch-failure": true,
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "docroot/"
+            }
+        },
         "enable-patching": true,
         "installer-paths": {
             "docroot/core": [
@@ -36,12 +41,35 @@
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
+            ],
+            "docroot/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "docroot/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
             ]
         },
         "installer-types": [
             "bower-asset",
             "npm-asset"
-        ]
+        ],
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/core": {
+                "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2020-02-07/2869592-remove-update-warning-34.patch",
+                "[subprofile support] 1356276 - Allow profiles to define a base/parent profile and load them in the correct order / 2914389 - Allow profiles to exclude dependencies of their parent": "https://www.drupal.org/files/issues/2020-11-16/3143958-4-subprofile-support-9.1.x.patch",
+                "2031261 - Fix SQLite variable limit": "https://www.drupal.org/files/issues/2020-04-01/2031261-118.patch"
+            }
+        },
+        "patches-ignore": {
+            "drupal/lightning_core": {
+                "drupal/core": {
+                    "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch"
+                }
+            }
+        }
     },
     "repositories": {
         "drupal": {
@@ -51,18 +79,11 @@
         "assets": {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
-        "dev": {
-            "type": "github",
-            "url": "https://github.com/acquia/lightning-dev",
-            "no-api": true
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "post-install-cmd": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
-        "post-update-cmd": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "nuke": "rm -r -f docroot/modules/contrib docroot/profiles/contrib vendor composer.lock"
     }
 }
