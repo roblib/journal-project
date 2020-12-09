@@ -1,5 +1,5 @@
 {
-    "name": "islandora-rdm"/journal-project",
+    "name": "islandora-rdm/journal-project",
     "type": "project",
     "description": "Project template for Drupal 8 sites built with the Journal distribution based on Lightning.",
     "license": "GPL-2.0-or-later",
