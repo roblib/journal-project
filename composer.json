@@ -67,22 +67,19 @@
         "assets": {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        }
+        },
         "ckeditor":{
               "type":"package",
               "package":{
                 "name":"ckeditor-plugin/fakeobjects",
                 "version":"4.15.1",
-                "type":"type": "drupal-library",
+                "type": "drupal-library",
                 "dist":{
                   "url":"https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.15.1.zip",
                   "type":"zip"
                 }
               }
             }
-          
-        
-        
         
     },
     "minimum-stability": "dev",
