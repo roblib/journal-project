@@ -10,21 +10,21 @@ SITEURL=${1:-http://localhost}
 ACCOUNTPASS=${2:-admin}
 
 
-drush -l $SITEURL ucrt "Sample Submitter" --password=ACCOUNTPASS
+../vendor/bin/drush -l $SITEURL ucrt "Sample Submitter" --password=ACCOUNTPASS
 
-drush -l $SITEURL user:role:add "journal_article_creator" "Sample Submitter"
+../vendor/bin/drush -l $SITEURL user:role:add "journal_article_creator" "Sample Submitter"
 
-drush -l $SITEURL ucrt "Sample Reviewer" --password=ACCOUNTPASS
+../vendor/bin/drush -l $SITEURL ucrt "Sample Reviewer" --password=ACCOUNTPASS
 
-drush -l $SITEURL user:role:add "journal_article_reviewer" "Sample Reviewer"
+../vendor/bin/drush -l $SITEURL user:role:add "journal_article_reviewer" "Sample Reviewer"
 
-drush -l $SITEURL pm-enable devel_generate
+../vendor/bin/drush -l $SITEURL pm-enable devel_generate
 
-drush -l $SITEURL devel-generate-content 1 --bundles=journal
-drush -l $SITEURL devel-generate-content 8 --bundles=issue
+../vendor/bin/drush -l $SITEURL devel-generate-content 1 --bundles=journal
+../vendor/bin/drush -l $SITEURL devel-generate-content 8 --bundles=issue
 
-drush -l $SITEURL devel-generate-terms --bundles=article_section 3
-drush -l $SITEURL devel-generate-terms --bundles=article_keywords 3
-drush -l $SITEURL  devel-generate-terms --bundles=disciplines 3
-drush -l $SITEURL devel-generate-terms --bundles=subjects 3
-drush -l $SITEURL devel-generate-content 40 --bundles=journal_article
+../vendor/bin/drush -l $SITEURL devel-generate-terms --bundles=article_section 3
+../vendor/bin/drush -l $SITEURL devel-generate-terms --bundles=article_keywords 3
+../vendor/bin/drush -l $SITEURL  devel-generate-terms --bundles=disciplines 3
+../vendor/bin/drush -l $SITEURL devel-generate-terms --bundles=subjects 3
+../vendor/bin/drush -l $SITEURL devel-generate-content 40 --bundles=journal_article
