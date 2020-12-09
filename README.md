@@ -13,7 +13,7 @@ $ cd docroot; php ./core/scripts/drupal quick-start journal
 Once the site is up, in a new terminal:
 
 ```
-$ cd my-journal-/scripts
+$ cd my-journal/scripts
 $ ./generate-sample-content.sh http://127.0.0.1:8888 admin
 ```
 
