@@ -1,14 +1,22 @@
 This is a Composer-based installer for the [Journal](https://github.com/roblib/journal-profile) Drupal distribution based on [Lightning](http://drupal.org/project/lightning). Welcome to the future of scholarly publishing!
 
 ## Get Started
-```
+
 git clone this repository into your local environment and rename the folder to what you want
+
+```
 $ cd my-journal
 $ composer install
 $ cd docroot; php ./core/scripts/drupal quick-start journal
-Once the site is up, in a new terminal,:
+```
+
+Once the site is up, in a new terminal:
+
+```
 $ cd my-journal-/scripts
 $ ./generate-sample-content.sh http://127.0.0.1:8888 admin
+```
+
 (where 'admin' is the password for the sample created users)
 
 This will create a functioning Journal site, open a web browser, and log you into the site using Drupal's built-in Quick Start command. If you'd rather use your own database and web server, you can skip the second step above and install Journal like you would any other Drupal site.
