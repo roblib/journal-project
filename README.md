@@ -2,7 +2,7 @@ This is a Composer-based installer for the [Journal](https://github.com/roblib/j
 
 ## Get Started
 ```
-git clone this repository into your local environment can rename the folder to what you want
+git clone this repository into your local environment and rename the folder to what you want
 $ cd my-journal
 $ composer install
 $ cd docroot; php ./core/scripts/drupal quick-start journal
