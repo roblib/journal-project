@@ -11,6 +11,7 @@
         "oomphinc/composer-installers-extender": "^1.1 || ^2"
     },
     "require-dev": {
+        "drupal/devel": "^4.0",
         "drush/drush": ">=9.7",
         "phpspec/prophecy-phpunit": "^2"
     },
@@ -80,7 +81,7 @@
                 }
               }
             }
-        
+
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
