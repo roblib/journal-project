@@ -6,9 +6,21 @@ git clone this repository into your local environment can rename the folder to w
 $ cd my-journal
 $ composer install
 $ cd docroot; php ./core/scripts/drupal quick-start journal
-```
+Once the site is up, in a new terminal,:
+$ cd my-journal-/scripts
+$ ./generate-sample-content.sh http://127.0.0.1:8888 admin
+(where 'admin' is the password for the sample created users)
 
 This will create a functioning Journal site, open a web browser, and log you into the site using Drupal's built-in Quick Start command. If you'd rather use your own database and web server, you can skip the second step above and install Journal like you would any other Drupal site.
+
+The Journal site ships with Submitter and Reviewer roles, and content types for Journal, Issue and Article. These types have a hierarchical relationship via [Entity Reference Hierarchy](https://www.drupal.org/project/entity_hierarchy).
+
+generate-sample-content.sh  creates sample users and assign the Submitter and Reviewer roles to them,  then using [Devel](https://drupal.org/project/devel)'s devel-generate module, will populate your new site with Lorem Ipsum content that can let you see how the Issues and Article pages look structurally.
+
+It also creates sample terms in the Disciplines, Keywords, Sections, and Subjects vocabularies.
+
+See the comment at the top of script/generate-sample-content.sh for invocation instructions.
+
 
 Normally, Composer will install all dependencies into a `vendor` directory that is *next* to `docroot`, not inside it. This may create problems in certain hosting environments, so if you need to, you can tell Composer to install dependencies into `docroot/vendor` instead:
 
@@ -21,15 +33,6 @@ $ composer install
 
 Either way, remember to keep the `composer.json` and `composer.lock` files that exist above `docroot` -- they are controlling your dependencies.
 
-## Developer Quick-start
-
-The Journal site ships with Submitter and Reviewer roles, and content types for Journal, Issue and Article. These types have a hierarchical relationship via [Entity Reference Hierarchy](https://www.drupal.org/project/entity_hierarchy).
-
-in the scripts folder there is a script that creates sample users and assign the Submitter and Reviewer roles to them,  then using [Devel](https://drupal.org/project/devel)'s devel-generate module, will populate your new site with Lorem Ipsum content that can let you see how the Issues and Article pages look structurally.
-
-It also creates sample terms in the Disciplines, Keywords, Sections, and Subjects vocabularies.
-
-See the comment at the top of script/generate-sample-content.sh for invocation instructions.
 
 ## Maintenance
 `drush make`, `drush pm-download`, `drush pm-update` and their ilk are the old-school way of maintaining your code base. Forget them. You're in Composer land now!
