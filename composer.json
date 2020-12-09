@@ -1,12 +1,13 @@
 {
-    "name": "acquia/lightning-project",
+    "name": "islandora-rdm"/journal-project",
     "type": "project",
-    "description": "Project template for Drupal 8 sites built with the Lightning distribution.",
+    "description": "Project template for Drupal 8 sites built with the Journal distribution based on Lightning.",
     "license": "GPL-2.0-or-later",
     "require": {
         "acquia/lightning": "~5.1.0",
         "cweagans/composer-patches": "^1.6.0",
         "drupal/core-composer-scaffold": "*",
+        "islandora-rdm/journal_profile": "1.1.x-dev",
         "oomphinc/composer-installers-extender": "^1.1 || ^2"
     },
     "require-dev": {
@@ -55,6 +56,10 @@
         }
     },
     "repositories": {
+        "journal": {
+            "type": "vcs",
+            "url": "https://github.com/roblib/journal_profile"
+        },
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
@@ -63,6 +68,22 @@
             "type": "composer",
             "url": "https://asset-packagist.org"
         }
+        "ckeditor":{
+              "type":"package",
+              "package":{
+                "name":"ckeditor-plugin/fakeobjects",
+                "version":"4.15.1",
+                "type":"type": "drupal-library",
+                "dist":{
+                  "url":"https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.15.1.zip",
+                  "type":"zip"
+                }
+              }
+            }
+          
+        
+        
+        
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -70,7 +91,7 @@
         "post-create-project-cmd": "rm -r -f .travis.yml .travis-ci",
         "quick-start": [
             "composer install",
-            "php docroot/core/scripts/drupal quick-start lightning --no-interaction"
+            "php docroot/core/scripts/drupal quick-start journal --no-interaction"
         ]
     }
 }
