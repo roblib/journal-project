@@ -5,7 +5,7 @@ This is a Composer-based installer for the [Journal](https://github.com/roblib/j
 git clone this repository into your local environment can rename the folder to what you want
 $ cd my-journal
 $ composer install
-$ composer quick-start
+$ cd docroot; php ./core/scripts/drupal quick-start journal
 ```
 
 This will create a functioning Journal site, open a web browser, and log you into the site using Drupal's built-in Quick Start command. If you'd rather use your own database and web server, you can skip the second step above and install Journal like you would any other Drupal site.
