@@ -7,6 +7,7 @@
         "acquia/lightning": "~5.1.0",
         "cweagans/composer-patches": "^1.6.0",
         "drupal/core-composer-scaffold": "*",
+        "islandora-rdm/journal_core": "1.x-dev",
         "islandora-rdm/journal_profile": "1.1.x-dev",
         "oomphinc/composer-installers-extender": "^1.1 || ^2",
         "drupal/devel_php": "^1.3"
@@ -61,6 +62,10 @@
         "journal": {
             "type": "vcs",
             "url": "https://github.com/roblib/journal_profile"
+        },
+        "journal_core": {
+            "type" : "vcs",
+            "url": "https://github.com/roblib/journal_core"
         },
         "drupal": {
             "type": "composer",
